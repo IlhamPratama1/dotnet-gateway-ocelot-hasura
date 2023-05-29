@@ -1,7 +1,8 @@
-using Dotnet.Gateway.API.Services;
+using Dotnet.Gateway.API.Middlewares;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 
+var middleware = new CustomAuthMiddleware();
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Configuration
@@ -14,33 +15,8 @@ builder.Services
 
 var app = builder.Build();
 
-var configuration = new OcelotPipelineConfiguration
-{
-    PreErrorResponderMiddleware = async (ctx, next) =>
-    {
-        bool shouldBlockRequest = false;
+var middlewareConfiguration = middleware.ocelotMiddlewareConfiguration();
 
-        if (ctx.Request.Path.Value == "/graphql")
-        {
-            shouldBlockRequest = true;
-            string customHeaderValue = ctx.Request.Headers["Authorization"].ToString();
-            bool isValid = await HttpRequestService.checkTokenValidation(customHeaderValue);
-            if (isValid)
-            {
-                shouldBlockRequest = false;
-            }
-        }
-
-        if (shouldBlockRequest)
-        {
-            ctx.Response.StatusCode = StatusCodes.Status403Forbidden;
-            return;
-        }
-
-        await next.Invoke();
-    }
-};
-
-await app.UseOcelot(configuration);
+await app.UseOcelot(middlewareConfiguration);
 
 app.Run();

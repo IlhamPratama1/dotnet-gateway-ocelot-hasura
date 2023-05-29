@@ -22,7 +22,6 @@
                 Console.WriteLine($"Error: {response.StatusCode}");
                 return false;
             }
-
         }
     }
 }
