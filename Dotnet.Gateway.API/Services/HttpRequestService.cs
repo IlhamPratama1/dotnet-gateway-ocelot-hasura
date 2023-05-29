@@ -6,6 +6,11 @@
 
         public async Task<Boolean> checkTokenValidation(string bearerToken)
         {
+            if (string.IsNullOrEmpty(bearerToken))
+            {
+                return false;
+            }
+
             var _client = new HttpClient();
             var httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, $"{baseUrl}/auth/current")
             {
