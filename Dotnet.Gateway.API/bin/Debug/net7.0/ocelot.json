@@ -61,10 +61,7 @@
           "Port": 8080
         }
       ],
-      "DownstreamPathTemplate": "/v1/graphql",
-      "RequireAuthorization": {
-        "Provider": "Custom"
-      }
+      "DownstreamPathTemplate": "/v1/graphql"
     }
   ],
   "GlobalConfiguration": {

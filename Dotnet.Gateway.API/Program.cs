@@ -1,8 +1,8 @@
 using Dotnet.Gateway.API.Middlewares;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
+using StackExchange.Redis;
 
-var middleware = new CustomAuthMiddleware();
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Configuration
@@ -13,8 +13,8 @@ builder.Configuration
 builder.Services
     .AddOcelot(builder.Configuration);
 
+var middleware = new CustomAuthMiddleware(builder.Configuration);
 var app = builder.Build();
-
 var middlewareConfiguration = middleware.ocelotMiddlewareConfiguration();
 
 await app.UseOcelot(middlewareConfiguration);

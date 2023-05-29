@@ -1,10 +1,10 @@
 ﻿namespace Dotnet.Gateway.API.Services
 {
-    public static class HttpRequestService
+    public class HttpRequestService
     {
-        static string baseUrl = "http://192.168.18.153:8055";
+        string baseUrl = "http://192.168.18.153:8055";
 
-        public static async Task<Boolean> checkTokenValidation(string bearerToken)
+        public async Task<Boolean> checkTokenValidation(string bearerToken)
         {
             var _client = new HttpClient();
             var httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, $"{baseUrl}/auth/current")
