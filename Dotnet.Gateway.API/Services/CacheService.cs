@@ -4,9 +4,9 @@ namespace Dotnet.Gateway.API.Services
 {
     public class CacheService
     {
-        IDatabase db;
+        IDatabase? db;
         bool isConnected = false;
-        ConnectionMultiplexer redis;
+        ConnectionMultiplexer? redis;
 
         public CacheService(ConfigurationManager _configuration)
         {
@@ -29,7 +29,7 @@ namespace Dotnet.Gateway.API.Services
         {
             if (isConnected)
             {
-                if (db.KeyExists(_key))
+                if (db!.KeyExists(_key))
                 {
                     return true;
                 }
@@ -47,7 +47,7 @@ namespace Dotnet.Gateway.API.Services
         {
             if (isConnected)
             {
-                db.StringSet(_key, _value);
+                db!.StringSet(_key, _value);
             }
         }
     }
