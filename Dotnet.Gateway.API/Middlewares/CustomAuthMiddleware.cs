@@ -1,5 +1,4 @@
 ﻿using Dotnet.Gateway.API.Services;
-using Microsoft.Extensions.Caching.Distributed;
 using Ocelot.Middleware;
 
 namespace Dotnet.Gateway.API.Middlewares
@@ -27,7 +26,7 @@ namespace Dotnet.Gateway.API.Middlewares
                     {
                         _blockRequest = true;
                         string customHeaderValue = ctx.Request.Headers["Authorization"].ToString();
-                        
+
                         if (cacheService.CheckKeyExist(customHeaderValue))
                         {
                             _blockRequest = false;
