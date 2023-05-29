@@ -2,7 +2,29 @@
   "Routes": [
     {
       // === Read All Route in Service
+      "UpstreamPathTemplate": "/auth",
+      "Priority": 2,
+
+      // === Avaiable Method to Use
+      "UpstreamHttpMethod": [ "Post" ],
+
+      // === PROTOCOL
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          // === SERVICE HOST
+          "Host": "192.168.18.153",
+
+          // === SERVICE PORT
+          "Port": 8055
+        }
+      ],
+      "DownstreamPathTemplate": "/auth/login"
+    },
+    {
+      // === Read All Route in Service
       "UpstreamPathTemplate": "/{everything}",
+      "Priority": 0,
 
       // === Avaiable Method to Use
       "UpstreamHttpMethod": [ "Get", "Post", "Update", "Delete" ],
@@ -23,6 +45,7 @@
     {
       // === Read All Route in Service
       "UpstreamPathTemplate": "/graphql",
+      "Priority": 1,
 
       // === Avaiable Method to Use
       "UpstreamHttpMethod": [ "Get", "Post" ],
@@ -38,9 +61,11 @@
           "Port": 8080
         }
       ],
-      "DownstreamPathTemplate": "/v1/graphql"
-    },
-
+      "DownstreamPathTemplate": "/v1/graphql",
+      "RequireAuthorization": {
+        "Provider": "Custom"
+      }
+    }
   ],
   "GlobalConfiguration": {
     // === .NET Gateway URL

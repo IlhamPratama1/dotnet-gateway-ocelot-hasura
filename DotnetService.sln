@@ -5,10 +5,6 @@ VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dotnet.Gateway.API", "Dotnet.Gateway.API\Dotnet.Gateway.API.csproj", "{03796542-B4B0-464C-99A7-F2B643E6DBFB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dotnet.Ocelot.Hasura", "Dotnet.Ocelot.Hasura\Dotnet.Ocelot.Hasura.csproj", "{2CCFE35A-B9A6-47B6-9D3F-A0F2DAA44603}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dotnet.GraphQL", "Dotnet.GraphQL\Dotnet.GraphQL.csproj", "{BDAB085F-EF3E-4F86-949A-C19869D74EEF}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,14 +15,6 @@ Global
 		{03796542-B4B0-464C-99A7-F2B643E6DBFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03796542-B4B0-464C-99A7-F2B643E6DBFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03796542-B4B0-464C-99A7-F2B643E6DBFB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2CCFE35A-B9A6-47B6-9D3F-A0F2DAA44603}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2CCFE35A-B9A6-47B6-9D3F-A0F2DAA44603}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2CCFE35A-B9A6-47B6-9D3F-A0F2DAA44603}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2CCFE35A-B9A6-47B6-9D3F-A0F2DAA44603}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BDAB085F-EF3E-4F86-949A-C19869D74EEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BDAB085F-EF3E-4F86-949A-C19869D74EEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BDAB085F-EF3E-4F86-949A-C19869D74EEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BDAB085F-EF3E-4F86-949A-C19869D74EEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

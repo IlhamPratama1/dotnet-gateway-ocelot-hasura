@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\Backends\\dotnet-gateway-ocelot-hasura\\Dotnet.Gateway.API\\Dotnet.Gateway.API.csproj": {}
+    "D:\\Projects\\Backends\\dotnet-gateway-ocelot-hasura\\Example.Rest.API\\Example.Rest.API.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\Backends\\dotnet-gateway-ocelot-hasura\\Dotnet.Gateway.API\\Dotnet.Gateway.API.csproj": {
+    "D:\\Projects\\Backends\\dotnet-gateway-ocelot-hasura\\Example.Rest.API\\Example.Rest.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\Backends\\dotnet-gateway-ocelot-hasura\\Dotnet.Gateway.API\\Dotnet.Gateway.API.csproj",
-        "projectName": "Dotnet.Gateway.API",
-        "projectPath": "D:\\Projects\\Backends\\dotnet-gateway-ocelot-hasura\\Dotnet.Gateway.API\\Dotnet.Gateway.API.csproj",
+        "projectUniqueName": "D:\\Projects\\Backends\\dotnet-gateway-ocelot-hasura\\Example.Rest.API\\Example.Rest.API.csproj",
+        "projectName": "Example.Rest.API",
+        "projectPath": "D:\\Projects\\Backends\\dotnet-gateway-ocelot-hasura\\Example.Rest.API\\Example.Rest.API.csproj",
         "packagesPath": "C:\\Users\\prata\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\Backends\\dotnet-gateway-ocelot-hasura\\Dotnet.Gateway.API\\obj\\",
+        "outputPath": "D:\\Projects\\Backends\\dotnet-gateway-ocelot-hasura\\Example.Rest.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\prata\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,20 +39,6 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "dependencies": {
-            "Microsoft.AspNetCore.Authentication.JwtBearer": {
-              "target": "Package",
-              "version": "[7.0.5, )"
-            },
-            "Ocelot": {
-              "target": "Package",
-              "version": "[19.0.2, )"
-            },
-            "Ocelot.Provider.Consul": {
-              "target": "Package",
-              "version": "[19.0.2, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
