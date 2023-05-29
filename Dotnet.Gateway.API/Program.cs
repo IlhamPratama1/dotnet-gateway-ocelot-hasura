@@ -1,7 +1,6 @@
 using Dotnet.Gateway.API.Middlewares;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
-using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
 

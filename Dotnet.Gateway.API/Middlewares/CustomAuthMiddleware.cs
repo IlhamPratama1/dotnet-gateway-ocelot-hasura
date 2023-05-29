@@ -1,6 +1,4 @@
 ﻿using Dotnet.Gateway.API.Services;
-using Microsoft.Extensions.Caching.Distributed;
-using Microsoft.IdentityModel.Tokens;
 using Ocelot.Middleware;
 
 namespace Dotnet.Gateway.API.Middlewares
