@@ -18,15 +18,15 @@ namespace Dotnet.Gateway.API.Middlewares
         {
             return new OcelotPipelineConfiguration
             {
-                PreErrorResponderMiddleware = async (ctx, next) =>
+                PreErrorResponderMiddleware = async (_ctx, _next) =>
                 {
                     bool _blockRequest = false;
-                    string path = ctx.Request.Path.Value != null ? ctx.Request.Path.Value : "";
+                    string _path = _ctx.Request.Path.Value != null ? _ctx.Request.Path.Value : "";
 
-                    if (protectedRoutes.Any(route => path.Contains(route)))
+                    if (protectedRoutes.Any(route => _path.Contains(route)))
                     {
                         _blockRequest = true;
-                        string customHeaderValue = ctx.Request.Headers["Authorization"].ToString();
+                        string customHeaderValue = _ctx.Request.Headers["Authorization"].ToString();
 
                         if (cacheService.CheckKeyExist(customHeaderValue))
                         {
@@ -41,11 +41,11 @@ namespace Dotnet.Gateway.API.Middlewares
 
                     if (_blockRequest)
                     {
-                        ctx.Response.StatusCode = StatusCodes.Status403Forbidden;
+                        _ctx.Response.StatusCode = StatusCodes.Status403Forbidden;
                         return;
                     }
 
-                    await next.Invoke();
+                    await _next.Invoke();
                 }
             };
         }        
