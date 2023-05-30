@@ -2,7 +2,7 @@
   "Routes": [
     {
       // ===== Auth Route Config ===== //
-      "UpstreamPathTemplate": "/auth",
+      "UpstreamPathTemplate": "/auth/{everything}",
       "Priority": 2,
       "UpstreamHttpMethod": [ "Post" ],
       "DownstreamScheme": "http",
@@ -12,7 +12,7 @@
           "Port": 8055
         }
       ],
-      "DownstreamPathTemplate": "/auth/login"
+      "DownstreamPathTemplate": "/auth/{everything}"
     },
 
     // ===== Rest API Route Config ===== //
