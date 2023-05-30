@@ -13,9 +13,9 @@ builder.Services
     .AddOcelot(builder.Configuration);
 
 var middleware = new CustomAuthMiddleware(builder.Configuration);
-var app = builder.Build();
 var middlewareConfiguration = middleware.ocelotMiddlewareConfiguration();
 
+var app = builder.Build();
 await app.UseOcelot(middlewareConfiguration);
 
 app.Run();

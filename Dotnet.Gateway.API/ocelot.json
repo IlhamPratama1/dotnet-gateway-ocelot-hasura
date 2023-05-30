@@ -43,6 +43,21 @@
         }
       ],
       "DownstreamPathTemplate": "/v1/graphql"
+    },
+
+    // ===== Custom Rest Route Config ===== //
+    {
+      "UpstreamPathTemplate": "/api/{everything}",
+      "Priority": 1,
+      "UpstreamHttpMethod": [ "Get", "Post", "Patch", "Delete" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "192.168.18.153",
+          "Port": 8080
+        }
+      ],
+      "DownstreamPathTemplate": "/api/rest/{everything}"
     }
   ],
   "GlobalConfiguration": {
