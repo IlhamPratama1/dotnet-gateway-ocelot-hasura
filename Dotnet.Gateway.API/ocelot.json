@@ -8,8 +8,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "192.168.18.153",
-          "Port": 8055
+          "Host": "66.42.48.159",
+          "Port": 38055
         }
       ],
       "DownstreamPathTemplate": "/auth/{everything}"
@@ -23,8 +23,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "192.168.18.153",
-          "Port": 8055
+          "Host": "66.42.48.159",
+          "Port": 38055
         }
       ],
       "DownstreamPathTemplate": "/{everything}"
@@ -38,14 +38,14 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "192.168.18.153",
-          "Port": 8080
+          "Host": "66.42.48.159",
+          "Port": 38080
         }
       ],
       "DownstreamPathTemplate": "/v1/graphql"
     },
 
-    // ===== Custom Rest Route Config ===== //
+    // ===== Custom Rest API Route Config ===== //
     {
       "UpstreamPathTemplate": "/api/{everything}",
       "Priority": 1,
@@ -53,8 +53,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "192.168.18.153",
-          "Port": 8080
+          "Host": "66.42.48.159",
+          "Port": 38080
         }
       ],
       "DownstreamPathTemplate": "/api/rest/{everything}"
