@@ -5,7 +5,7 @@ namespace Dotnet.Gateway.API.Middlewares
 {
     public class CustomAuthMiddleware
     {
-        string[] protectedRoutes = new string[] { "/graphql", "/api/" };
+        private static string[] PROTECTED_ROUTES = new string[] { "/graphql", "/api/" };
 
         HttpRequestService requestService;
         CacheService cacheService;
@@ -23,7 +23,7 @@ namespace Dotnet.Gateway.API.Middlewares
                     bool _blockRequest = false;
                     string _path = _ctx.Request.Path.Value != null ? _ctx.Request.Path.Value : "";
 
-                    if (protectedRoutes.Any(route => _path.Contains(route)))
+                    if (PROTECTED_ROUTES.Any(route => _path.Contains(route)))
                     {
                         _blockRequest = true;
                         string customHeaderValue = _ctx.Request.Headers["Authorization"].ToString();

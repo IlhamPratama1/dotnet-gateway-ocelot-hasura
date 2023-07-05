@@ -5,6 +5,8 @@ VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dotnet.Gateway.API", "Dotnet.Gateway.API\Dotnet.Gateway.API.csproj", "{03796542-B4B0-464C-99A7-F2B643E6DBFB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dotnet.Auth.API", "Dotnet.Auth.API\Dotnet.Auth.API.csproj", "{DE8BFEF2-AE00-4D4F-A7AF-500D25C95EB1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{03796542-B4B0-464C-99A7-F2B643E6DBFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03796542-B4B0-464C-99A7-F2B643E6DBFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03796542-B4B0-464C-99A7-F2B643E6DBFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE8BFEF2-AE00-4D4F-A7AF-500D25C95EB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE8BFEF2-AE00-4D4F-A7AF-500D25C95EB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE8BFEF2-AE00-4D4F-A7AF-500D25C95EB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE8BFEF2-AE00-4D4F-A7AF-500D25C95EB1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

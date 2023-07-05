@@ -22,7 +22,6 @@ namespace Dotnet.Gateway.API.Services
             {
                 isConnected = false;
             }
-            
         }
 
         public Boolean CheckKeyExist(string _key)

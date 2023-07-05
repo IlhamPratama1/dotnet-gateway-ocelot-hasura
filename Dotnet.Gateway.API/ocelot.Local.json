@@ -1,0 +1,67 @@
+{
+  "Routes": [
+    {
+      // ===== Auth Route Config ===== //
+      "UpstreamPathTemplate": "/auth/{everything}",
+      "Priority": 2,
+      "UpstreamHttpMethod": ["Post"],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "66.42.48.159",
+          "Port": 38055
+        }
+      ],
+      "DownstreamPathTemplate": "/auth/{everything}"
+    },
+
+    // ===== Rest API Route Config ===== //
+    {
+      "UpstreamPathTemplate": "/{everything}",
+      "Priority": 0,
+      "UpstreamHttpMethod": ["Get", "Post", "Update", "Delete"],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "66.42.48.159",
+          "Port": 38055
+        }
+      ],
+      "DownstreamPathTemplate": "/{everything}"
+    },
+
+    // ===== GraphQL Route Config ===== //
+    {
+      "UpstreamPathTemplate": "/graphql",
+      "Priority": 1,
+      "UpstreamHttpMethod": ["Get", "Post"],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "66.42.48.159",
+          "Port": 38080
+        }
+      ],
+      "DownstreamPathTemplate": "/v1/graphql"
+    },
+
+    // ===== Custom Rest API Route Config ===== //
+    {
+      "UpstreamPathTemplate": "/api/{everything}",
+      "Priority": 1,
+      "UpstreamHttpMethod": ["Get", "Post", "Patch", "Delete"],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "66.42.48.159",
+          "Port": 38080
+        }
+      ],
+      "DownstreamPathTemplate": "/api/rest/{everything}"
+    }
+  ],
+  "GlobalConfiguration": {
+    // ===== .NET Gateway URL ===== //
+    "BaseUrl": "http://localhost:5145"
+  }
+}
