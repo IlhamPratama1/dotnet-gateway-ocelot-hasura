@@ -17,7 +17,7 @@
       "applicationUrl": "http://localhost:5287",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "ASPNETCORE_DIRECTUS_URL": "http://66.42.48.159:38055/",
+        "ASPNETCORE_DIRECTUS_URL": "http://66.42.48.159:38077/",
         "ASPNETCORE_HASURA_SECRET_KEY": "oursupersecretsupersecurekey1234567890"
       }
     },
@@ -29,7 +29,7 @@
       "applicationUrl": "https://localhost:7155;http://localhost:5287",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "ASPNETCORE_DIRECTUS_URL": "http://66.42.48.159:38055/",
+        "ASPNETCORE_DIRECTUS_URL": "http://66.42.48.159:38077/",
         "ASPNETCORE_HASURA_SECRET_KEY": "oursupersecretsupersecurekey1234567890"
       }
     },
