@@ -3,9 +3,7 @@ using Dotnet.Auth.API.Entities;
 using Dotnet.Auth.API.Services;
 using Dotnet.Auth.API.Dtos;
 using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
+using System.Net;
 
 namespace Dotnet.Auth.API.Controllers;
 
@@ -18,20 +16,30 @@ public class AuthController : ControllerBase
     {
         try
         {
-            Response<LoginRes> res = await HttpRequestService<Response<LoginRes>>.PostAsync("auth/login", value);
-            DirectusToken directusToken = TokenService.DecodeDirectusToken(res.data?.access_token ?? "");
-            HasuraRes hasuraRes = TokenService.GenerateHasuraClaimToken(directusToken.id ?? "");
-            return Ok(hasuraRes);
+            Response<DirectusRes> res = await HttpRequestService<Response<DirectusRes>>.PostAsync("auth/login", value);
+
+            DirectusToken? directusToken = TokenService.DecodeDirectusToken(res.data?.access_token);
+            LoginRes? result = TokenService.GenerateMultiserviceToken(directusToken, res.data?.refresh_token);
+
+            return Ok(result);
         }
         catch (ArgumentException ex)
         {
-            // Handle ArgumentException
-            return BadRequest(new { message = "An argument error occurred: " + ex.Message });
+            return BadRequest(new
+            {
+                statusCode = 401,
+                success = false,
+                message= ex.Message,
+            });
         }
         catch (Exception ex)
         {
-            // Handle all other exceptions
-            return BadRequest(new { message = "An unknown error occurred: " + ex.Message });
+            return BadRequest(new
+            {
+                statusCode = 401,
+                success = false,
+                message = ex.Message,
+            });
         }
     }
 
@@ -55,32 +63,16 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("refresh")]
-    public  IActionResult RefreshToken([FromBody] RefreshDto res)
+    public async Task<IActionResult> RefreshToken([FromBody] RefreshDto value)
     {
-        var tokenHandler = new JwtSecurityTokenHandler();
-        var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(TokenService.SECRET_KEY));
-
         try
         {
-            // Validate the JWT refresh token
-            var validationParameters = new TokenValidationParameters
-            {
-                ValidateIssuerSigningKey = true,
-                IssuerSigningKey = securityKey,
-                ValidateIssuer = false,
-                ValidateAudience = false,
-                ValidateLifetime = true,
-                ClockSkew = TimeSpan.Zero,
-            };
+            Response<DirectusRes> res = await HttpRequestService<Response<DirectusRes>>.PostAsync("auth/refresh", value);
 
-            var principal = tokenHandler.ValidateToken(res.refresh_token, validationParameters, out _);
+            DirectusToken? directusToken = TokenService.DecodeDirectusToken(res.data?.access_token);
+            LoginRes? result = TokenService.GenerateMultiserviceToken(directusToken, res.data?.refresh_token);
 
-            // Generate a new access token and refresh token
-            string user_id = principal.FindFirst(ClaimTypes.NameIdentifier).Value;
-            HasuraRes hasuraRes = TokenService.GenerateHasuraClaimToken(user_id);
-
-            // Return the new tokens
-            return Ok(hasuraRes);
+            return Ok(result);
         }
         catch (SecurityTokenException)
         {
